@@ -36,6 +36,14 @@ class CoffeeShop {
             }
         }
 
+        void printOrders() {
+            Order* current = head;
+            while (current != nullptr) {
+                cout << current->customer << " ordered a " << current->drink << endl;
+                current = current->next;
+            }
+        }
+
 };
 
 
@@ -49,5 +57,17 @@ int main() {
     string coffeeNames[] = {"Alice", "Bob", "Charlie", "Diana", "Eve", "Frank", "Grace", "Henry"};
     string coffeeDrinks[] = {"Espresso", "Latte", "Cappuccino", "Americano", "Mocha", "Macchiato"};
 
+    CoffeeShop coffeeshop;
+
+    for (int i = 0; i < 5; ++i) {
+        string customer = coffeeNames[rand() % 8];
+        string drink = coffeeDrinks[rand() % 6];
+        coffeeshop.entQueueOrder(customer, drink);
+    }
+     
+    cout << "Current Orders: " << endl;
+    coffeeshop.printOrders();
+
+    return 0;
 
 }
