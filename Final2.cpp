@@ -6,6 +6,7 @@
 #include <ctime>
 using namespace std;
 
+// MILESTONE 1
 struct Order {
     string customer;
     string drink;
@@ -31,11 +32,11 @@ class CoffeeShop {
                 tail = newOrder;
             }
         }
-        
+
         void printOrders() {
             Order* current = head;
             while (current != nullptr) {
-                cout << current->customer << " ordered a " << current->drink << endl;
+                cout << current->customer << ": " << current->drink << endl;
                 current = current->next;
             }
         }
@@ -55,7 +56,7 @@ int main() {
 
     CoffeeShop coffeeshop;
 
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 3; ++i) {
         string customer = coffeeNames[rand() % 8];
         string drink = coffeeDrinks[rand() % 6];
         coffeeshop.entQueueOrder(customer, drink);
@@ -64,6 +65,8 @@ int main() {
     cout << "Current Orders: " << endl;
     coffeeshop.printOrders();
 
+
+    
     return 0;
 
 }
