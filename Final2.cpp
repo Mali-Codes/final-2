@@ -100,94 +100,91 @@ int main() {
     }
 
 
-    // cout << "Current Orders: " << "\n";
-    // coffeeshop.printOrders();
+    cout << "Current Orders: " << "\n";
+    coffeeshop.printOrders();
 
-    // for (int i = 0; i < 10; ++i) {
-    //     cout << "+++ Round " << i << "+++" << endl;
+    for (int i = 0; i < 10; ++i) {
+        cout << "+++ Round " << i << "+++" << endl;
     
-    // if (!coffeeshop.isempty()) {
-    //     Order* current = coffeeshop.front();
-    //     cout << "Served: " << current->customer << endl;
-    //     coffeeshop.dequeueOrder();
-    //     } else {
-    //         cout << "No orders to serve." << endl;
-    //     }
-    
-    //     if (rand() % 2 == 0) {
-    //     string customer = coffeeNames[rand() % 8];
-    //     string drink = coffeeDrinks[rand() % 6];
-    //     coffeeshop.entQueueOrder(customer, drink);
-    //     cout << "New Order Added: " << customer << " - " << drink << endl;
-    // }
-    
-    // }
-    // cout << "--------------------------------------" << endl;
-    // cout << "Current Orders: " << "\n";
-    // if (coffeeshop.isempty()) {
-    //     cout << "No more orders." << endl;
-    // } else {
-    //     coffeeshop.printOrders();
-    // }
-    
-    
-    #include "Car.h"
-#include <cstdlib>
-#include <ctime>
-#include <deque>
-using namespace std;
-
-const int initalSize = 2;
-
-
-    for (int i = 0; i < initalSize; i++) { //from lab 32
-        Car c;
-        tollbooth.push_back(c);
-    }
-
-    cout << "Start queue" << endl;
-    
-    for (auto& car : tollbooth) {
-        cout << "    ";
-        car.print();
-    }
-
-
-    int time = 1;
-
-    while (!tollbooth.empty()) {
-        cout << "\nTime " << time << ":\n";
-
-        int action = rand() % 2;
-
-        if (action == 0) {
-            Car newCar;
-            tollbooth.push_back(newCar);
-            cout << "    New car arrived: ";
-            newCar.print();
-        }
-        else {
-            cout << "Paid toll: ";
-            tollbooth.front().print();
-            tollbooth.pop_front(); // take it out 
-        }
-
-        cout << "Queue: \n";
-
-        if (tollbooth.empty()) {
-            cout << "empty queue \n";
+    if (!coffeeshop.isempty()) {
+        Order* current = coffeeshop.front();
+        cout << "Served: " << current->customer << endl;
+        coffeeshop.dequeueOrder();
         } else {
-            for (auto& car : tollbooth) {
-                cout << "    ";
-                car.print();
-            }
+            cout << "No orders to serve." << endl;
         }
-        
-        time ++;
     
+        if (rand() % 2 == 0) {
+        string customer = coffeeNames[rand() % 8];
+        string drink = coffeeDrinks[rand() % 6];
+        coffeeshop.entQueueOrder(customer, drink);
+        cout << "New Order Added: " << customer << " - " << drink << endl;
     }
+    
+    cout << "\n[Muffin Booth]" << endl;
+        if (!muffinshop.empty()) {
+            Customer customer = muffinshop.front();
+            cout << "  Serving: " << customer.name << " - " << customer.order << " muffin" << endl;
+            muffinshop.pop_front();
+        } else {
+            cout << "  No customers to serve." << endl;
+        }
 
-    return 0;
+
+
+    }
+    
+    
+    
+
+    // for (int i = 0; i < initalSize; i++) { //from lab 32
+    //     Car c;
+    //     tollbooth.push_back(c);
+    // }
+
+    // cout << "Start queue" << endl;
+    
+    // for (auto& car : tollbooth) {
+    //     cout << "    ";
+    //     car.print();
+    // }
+
+
+    // int time = 1;
+
+    // while (!tollbooth.empty()) {
+    //     cout << "\nTime " << time << ":\n";
+
+    //     int action = rand() % 2;
+
+    //     if (action == 0) {
+    //         Car newCar;
+    //         tollbooth.push_back(newCar);
+    //         cout << "    New car arrived: ";
+    //         newCar.print();
+    //     }
+    //     else {
+    //         cout << "Paid toll: ";
+    //         tollbooth.front().print();
+    //         tollbooth.pop_front(); // take it out 
+    //     }
+
+    //     cout << "Queue: \n";
+
+    //     if (tollbooth.empty()) {
+    //         cout << "empty queue \n";
+    //     } else {
+    //         for (auto& car : tollbooth) {
+    //             cout << "    ";
+    //             car.print();
+    //         }
+    //     }
+        
+    //     time ++;
+    
+    // }
+
+    // return 0;
 
 
 
