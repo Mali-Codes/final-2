@@ -84,10 +84,14 @@ int main() {
 
     string braceletNames[] = {"Quinn", "Ryan", "Sara", "Tom", "Uma", "Vince", "Wendy", "Xavier"};
     string braceletTypes[] = {"Rainbow", "Ocean Wave", "Sunset", "Forest", "Galaxy", "Coral"};
+
+    string keychainNames[] = {"Yara", "Zack", "Amy", "Ben", "Cleo", "Dave", "Ella", "Finn"};
+    string keychainTypes[] = {"Star", "Heart", "Moon", "Lightning", "Cloud", "Sunburst"};
     
     CoffeeShop coffeeshop;
     deque<Customer> muffinshop;
-    vector<Customer> braceletshop;;
+    vector<Customer> braceletshop;
+    stack<Customer> keychainshop;
 
     for (int i = 0; i < 3; ++i) {
         string customer = coffeeNames[rand() % 8];
@@ -104,15 +108,21 @@ int main() {
 
 
     for (int i = 0; i < 3; i++) {
-    string name = braceletNames[rand() % 8];
-    string bracelet = braceletTypes[rand() % 6];
-    braceletshop.push_back(Customer(name, bracelet));
+        string name = keychainNames[rand() % 8];
+        string bracelet = keychainTypes[rand() % 6];
+        keychainshop.push_back(Customer(name, keychain));
+    }
+
+    for (int i = 0; i < 3; i++) {
+        string name = braceletNames[rand() % 8];
+        string bracelet = braceletTypes[rand() % 6];
+        braceletshop.push_back(Customer(name, bracelet));
     }
 
 
     cout << "\n+++ Simulation Start +++\n" << endl;
 
-    for (int i = 0; i < 10; ++i) {                   ///////reminder change back to 10
+    for (int i = 0; i < 10; ++i) {                   
         cout << "+++ Round " << i << "+++" << endl;
     
     cout << "\n[Coffee Shop]" << endl;
