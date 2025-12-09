@@ -63,7 +63,12 @@ class CoffeeShop {
 };
 
 
+struct Customer {
+    string name;
+    string order;
 
+    Customer(string n, string o) : name(n), order(o) {}
+};
 
 
 
@@ -73,7 +78,12 @@ int main() {
     string coffeeNames[] = {"Alice", "Bob", "Charlie", "Diana", "Eve", "Frank", "Grace", "Henry"};
     string coffeeDrinks[] = {"Espresso", "Latte", "Cappuccino", "Americano", "Mocha", "Macchiato"};
 
+
+    string muffinNames[] = {"Ivy", "Jack", "Kate", "Liam", "Mia", "Noah", "Olivia", "Paul"};
+    string muffinTypes[] = {"Blueberry", "Chocolate Chip", "Banana Nut", "Bran", "Lemon Poppy"};
+
     CoffeeShop coffeeshop;
+    deque<Customer> muffinshop;
 
     for (int i = 0; i < 3; ++i) {
         string customer = coffeeNames[rand() % 8];
@@ -101,10 +111,6 @@ int main() {
         coffeeshop.entQueueOrder(customer, drink);
         cout << "New Order Added: " << customer << " - " << drink << endl;
     }
-    
-    
-    
-    
     
     }
     cout << "--------------------------------------" << endl;
