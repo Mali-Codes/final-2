@@ -82,8 +82,12 @@ int main() {
     string muffinNames[] = {"Ivy", "Jack", "Kate", "Liam", "Mia", "Noah", "Olivia", "Paul"};
     string muffinTypes[] = {"Blueberry", "Chocolate Chip", "Banana Nut", "Bran", "Lemon Poppy"};
 
+    string braceletNames[] = {"Quinn", "Ryan", "Sara", "Tom", "Uma", "Vince", "Wendy", "Xavier"};
+    string braceletTypes[] = {"Rainbow", "Ocean Wave", "Sunset", "Forest", "Galaxy", "Coral"};
+    
     CoffeeShop coffeeshop;
     deque<Customer> muffinshop;
+    vector<Customer> braceletshop;;
 
     for (int i = 0; i < 3; ++i) {
         string customer = coffeeNames[rand() % 8];
@@ -97,6 +101,13 @@ int main() {
         string muffin = muffinTypes[rand() % 5];
         muffinshop.push_back(Customer(name, muffin));
     }
+
+
+//     for (int i = 0; i < 3; i++) {
+//     string name = braceletNames[rand() % 8];
+//     string bracelet = braceletTypes[rand() % 6];
+//     braceletshop.push_back(Customer(name, bracelet));
+// }
 
 
     cout << "\n+++ Simulation Start +++\n" << endl;
@@ -130,15 +141,35 @@ int main() {
         }
 
         if (rand() % 2 == 0) {
-        string customer = muffinNames[rand() % 8];
-        string drink = muffinTypes[rand() % 6];
-        muffinshop.push_back(Customer(customer, drink));
-        cout << "New Order Added: " << customer << " - " << drink << endl;
+        string customer = muffinNames[rand() % 8];      
+        string muffin = muffinTypes[rand() % 5];        
+        muffinshop.push_back(Customer(customer, muffin)); 
+        cout << "New Order Added: " << customer << " - " << muffin << " muffin" << endl;
+    } else {
+        cout << "No new customers joined." << endl;
     }
 
+    // cout << "\n[Bracelet Booth]" << endl;
+    // if (!braceletshop.empty()) {
+    //     Customer customer = braceletshop.front();
+    //     cout << "  Serving: " << customer.name << " - " << customer.order << " bracelet" << endl;
+    //     braceletshop.pop_back();
+    //     } else {
+    //         cout << "  No customers to serve." << endl;
+    //     }
+    
+    // if (rand() % 2 == 0) {
+    //     string customer = braceletNames[rand() % 8];
+    //     string drink = braceletTypes[rand() % 6];
+    //     muffinshop.push_back(Customer(customer, drink));
+    //     cout << "New Order Added: " << customer << " - " << drink << endl;
+    
+    
+    
+    
+    } // for loop ending
 
-
-    }
+    
     
     
  
