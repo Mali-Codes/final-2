@@ -103,11 +103,11 @@ int main() {
     }
 
 
-//     for (int i = 0; i < 3; i++) {
-//     string name = braceletNames[rand() % 8];
-//     string bracelet = braceletTypes[rand() % 6];
-//     braceletshop.push_back(Customer(name, bracelet));
-// }
+    for (int i = 0; i < 3; i++) {
+    string name = braceletNames[rand() % 8];
+    string bracelet = braceletTypes[rand() % 6];
+    braceletshop.push_back(Customer(name, bracelet));
+    }
 
 
     cout << "\n+++ Simulation Start +++\n" << endl;
@@ -149,22 +149,27 @@ int main() {
         cout << "No new customers joined." << endl;
     }
 
-    // cout << "\n[Bracelet Booth]" << endl;
-    // if (!braceletshop.empty()) {
-    //     Customer customer = braceletshop.front();
-    //     cout << "  Serving: " << customer.name << " - " << customer.order << " bracelet" << endl;
-    //     braceletshop.pop_back();
-    //     } else {
-    //         cout << "  No customers to serve." << endl;
-    //     }
+    cout << "\n[Bracelet Booth]" << endl;
+    if (!braceletshop.empty()) {
+        Customer customer = braceletshop.front();
+        cout << "  Serving: " << customer.name << " - " << customer.order << " bracelet" << endl;
+        braceletshop.erase(braceletshop.begin());
+        } else {
+            cout << "  No customers to serve." << endl;
+        }
     
-    // if (rand() % 2 == 0) {
-    //     string customer = braceletNames[rand() % 8];
-    //     string drink = braceletTypes[rand() % 6];
-    //     muffinshop.push_back(Customer(customer, drink));
-    //     cout << "New Order Added: " << customer << " - " << drink << endl;
+    if (rand() % 2 == 0) {
+    string customer = braceletNames[rand() % 8];
+    string bracelet = braceletTypes[rand() % 6];  
+    braceletshop.push_back(Customer(customer, bracelet));  
+    cout << "New Order Added: " << customer << " - " << bracelet << " bracelet" << endl;
+    } else {
+    cout << "No new customers joined." << endl;
+    }   
+
+
     
-    // 
+    
     
     
     } // for loop ending
