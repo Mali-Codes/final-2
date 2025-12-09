@@ -36,7 +36,7 @@ class CoffeeShop {
         void printOrders() {
             Order* current = head;
             while (current != nullptr) {
-                cout << current->customer << ": " << current->drink << endl;
+                cout << current->customer << " - " << current->drink << endl;
                 current = current->next;
             }
         }
@@ -45,12 +45,21 @@ class CoffeeShop {
             return head == nullptr;
         }
 
+         Order* front() {
+            return head;
+        }
+
         void dequeueOrder() {
             if (head == nullptr) return;
             Order* temp = head;
             head = head->next;
-            
+            if (head == nullptr) tail = nullptr;
+            delete temp;
         }
+
+
+            
+        
 };
 
 
@@ -72,28 +81,37 @@ int main() {
         coffeeshop.entQueueOrder(customer, drink);
     }
      
-    cout << "Current Orders: " << endl;
+    cout << "Current Orders: " << "\n";
     coffeeshop.printOrders();
 
     for (int i = 0; i < 10; ++i) {
-        cout << "Round " << i << endl;
+        cout << "+++ Round " << i << "+++" << endl;
     
     if (!coffeeshop.isempty()) {
-        Order* current = coffeeshop.head;
+        Order* current = coffeeshop.front();
         cout << "Served: " << current->customer << endl;
-        coffeeshop.head = current->next;
-
-        dequeue here
-
-        
-
+        coffeeshop.dequeueOrder();
+        } else {
+            cout << "No orders to serve." << endl;
+        }
+    
+        if (rand() % 2 == 0) {
+        string customer = coffeeNames[rand() % 8];
+        string drink = coffeeDrinks[rand() % 6];
+        coffeeshop.entQueueOrder(customer, drink);
+        cout << "New Order Added: " << customer << " - " << drink << endl;
     }
+    
+    
+    
+    
     
     }
 
-    }
-
     
+    
+
+
 
 
 
