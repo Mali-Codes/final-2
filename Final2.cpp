@@ -55,13 +55,8 @@ class CoffeeShop {
             head = head->next;
             if (head == nullptr) tail = nullptr;
             delete temp;
-        }
-
-
-            
-        
+        }             
 };
-
 
 struct Customer {
     string name;
@@ -70,14 +65,11 @@ struct Customer {
     Customer(string n, string o) : name(n), order(o) {}
 };
 
-
-
 int main() {
     srand(time(0));
 
     string coffeeNames[] = {"Alice", "Bob", "Charlie", "Diana", "Eve", "Frank", "Grace", "Henry"};
     string coffeeDrinks[] = {"Espresso", "Latte", "Cappuccino", "Americano", "Mocha", "Macchiato"};
-
 
     string muffinNames[] = {"Ivy", "Jack", "Kate", "Liam", "Mia", "Noah", "Olivia", "Paul"};
     string muffinTypes[] = {"Blueberry", "Chocolate Chip", "Banana Nut", "Bran", "Lemon Poppy"};
@@ -92,39 +84,36 @@ int main() {
     deque<Customer> muffinshop;
     vector<Customer> braceletshop;
     stack<Customer> keychainshop;
-
+    // MILESTONE 2
     for (int i = 0; i < 3; ++i) {
         string customer = coffeeNames[rand() % 8];
         string drink = coffeeDrinks[rand() % 6];
         coffeeshop.entQueueOrder(customer, drink);
     }
-     
-
+    // MILESTONE 3
     for (int i = 0; i < 3; i++) {
         string name = muffinNames[rand() % 8];
         string muffin = muffinTypes[rand() % 5];
         muffinshop.push_back(Customer(name, muffin));
     }
-
-
+    // MILESTONE 4
     for (int i = 0; i < 3; i++) {
         string name = braceletNames[rand() % 8];
         string bracelet = braceletTypes[rand() % 6];
         braceletshop.push_back(Customer(name, bracelet));
     }
-
+    // MILESTONE 5
     for (int i = 0; i < 3; i++) {
         string name = keychainNames[rand() % 8];
         string keychain = keychainTypes[rand() % 6];
         keychainshop.push(Customer(name, keychain));
     }
 
-
     cout << "\n+++ Simulation Start +++\n" << endl;
-
+    // MILESTONE 2
     for (int i = 0; i < 10; ++i) {                   
         cout << "+++ Round " << i << "+++" << endl;
-    
+    // MILESTONE 2
     cout << "\n[Coffee Shop]" << endl;
     if (!coffeeshop.isempty()) {
         Order* current = coffeeshop.front();
@@ -140,7 +129,7 @@ int main() {
         coffeeshop.entQueueOrder(customer, drink);
         cout << "New Order Added: " << customer << " - " << drink << endl;
     }
-    
+    // MILESTONE 3
     cout << "\n[Muffin Booth]" << endl;
         if (!muffinshop.empty()) {
             Customer customer = muffinshop.front();
@@ -158,7 +147,7 @@ int main() {
     } else {
         cout << "No new customers joined." << endl;
     }
-
+    // MILESTONE 4
     cout << "\n[Bracelet Booth]" << endl;
     if (!braceletshop.empty()) {
         Customer customer = braceletshop.front();
@@ -169,14 +158,14 @@ int main() {
         }
     
     if (rand() % 2 == 0) {
-    string customer = braceletNames[rand() % 8];
-    string bracelet = braceletTypes[rand() % 6];  
-    braceletshop.push_back(Customer(customer, bracelet));  
-    cout << "New Order Added: " << customer << " - " << bracelet << " bracelet" << endl;
-    } else {
-    cout << "No new customers joined." << endl;
-    }   
-
+        string customer = braceletNames[rand() % 8];
+        string bracelet = braceletTypes[rand() % 6];  
+        braceletshop.push_back(Customer(customer, bracelet));  
+        cout << "New Order Added: " << customer << " - " << bracelet << " bracelet" << endl;
+        } else {
+        cout << "No new customers joined." << endl;
+        }   
+    // MILESTONE 5
     cout << "\n[Keychain Booth]" << endl;
     if (!keychainshop.empty()) {
         Customer customer = keychainshop.top();
@@ -186,27 +175,13 @@ int main() {
             cout << "  No customers to serve." << endl;
         }
     if (rand() % 2 == 0) {
-    string customer = keychainNames[rand() % 8];
-    string keychain = keychainTypes[rand() % 6];
-    keychainshop.push(Customer(customer, keychain));
-    cout << "New Order Added: " << customer << " - " << keychain << " keychain" << endl;
-    } else {
-    cout << "No new customers joined." << endl;
-    }
-    
-    
-    
-    
-    } // for loop ending
-
-    
-    
-    
- 
-
-
-
-
+        string customer = keychainNames[rand() % 8];
+        string keychain = keychainTypes[rand() % 6];
+        keychainshop.push(Customer(customer, keychain));
+        cout << "New Order Added: " << customer << " - " << keychain << " keychain" << endl;
+        } else {
+        cout << "No new customers joined." << endl;
+        }   
+    } 
     return 0;
-
 }
