@@ -107,7 +107,13 @@ int main() {
     
     
     }
-
+    cout << "--------------------------------------" << endl;
+    cout << "Current Orders: " << "\n";
+    if (coffeeshop.isempty()) {
+        cout << "No more orders." << endl;
+    } else {
+        coffeeshop.printOrders();
+    }
     
     
 
