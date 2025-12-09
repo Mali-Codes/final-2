@@ -25,17 +25,13 @@ class CoffeeShop {
         void entQueueOrder(string customer, string drink) {
             Order* newOrder = new Order(customer, drink);
             if (tail == nullptr) {
+                head = tail = newOrder;
+            } else {
+                tail->next = newOrder;
                 tail = newOrder;
             }
         }
-        void dequeueOrder() {
-            if (head == nullptr) return;
-            head = head -> next;
-            if (head == nullptr) {
-                tail = nullptr;
-            }
-        }
-
+        
         void printOrders() {
             Order* current = head;
             while (current != nullptr) {
@@ -59,7 +55,7 @@ int main() {
 
     CoffeeShop coffeeshop;
 
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 10; ++i) {
         string customer = coffeeNames[rand() % 8];
         string drink = coffeeDrinks[rand() % 6];
         coffeeshop.entQueueOrder(customer, drink);
