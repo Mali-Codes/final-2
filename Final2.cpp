@@ -16,8 +16,27 @@ struct Order {
 
 class CoffeeShop {
     private:
-    
-}
+        Order* head;
+        Order* tail;
+
+    public:
+        CoffeeShop() : head(nullptr), tail(nullptr) {}
+
+        void entQueueOrder(string customer, string drink) {
+            Order* newOrder = new Order(customer, drink);
+            if (tail == nullptr) {
+                tail = newOrder;
+            }
+        }
+        void dequeueOrder() {
+            if (head == nullptr) return;
+            head = head -> next;
+            if (head == nullptr) {
+                tail = nullptr;
+            }
+        }
+
+};
 
 
 
