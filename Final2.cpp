@@ -96,16 +96,15 @@ int main() {
         string name = muffinNames[rand() % 8];
         string muffin = muffinTypes[rand() % 5];
         muffinshop.push_back(Customer(name, muffin));
-        cout << "  " << name << " ordered " << muffin << " muffin" << endl;
     }
 
 
-    cout << "Current Orders: " << "\n";
-    coffeeshop.printOrders();
+    cout << "\n+++ Simulation Start +++\n" << endl;
 
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 10; ++i) {                   ///////reminder change back to 10
         cout << "+++ Round " << i << "+++" << endl;
     
+    cout << "\n[Coffee Shop]" << endl;
     if (!coffeeshop.isempty()) {
         Order* current = coffeeshop.front();
         cout << "Served: " << current->customer << endl;
@@ -129,6 +128,13 @@ int main() {
         } else {
             cout << "  No customers to serve." << endl;
         }
+
+        if (rand() % 2 == 0) {
+        string customer = muffinNames[rand() % 8];
+        string drink = muffinTypes[rand() % 6];
+        muffinshop.push_back(Customer(customer, drink));
+        cout << "New Order Added: " << customer << " - " << drink << endl;
+    }
 
 
 
