@@ -108,15 +108,15 @@ int main() {
 
 
     for (int i = 0; i < 3; i++) {
-        string name = keychainNames[rand() % 8];
-        string bracelet = keychainTypes[rand() % 6];
-        keychainshop.push_back(Customer(name, keychain));
-    }
-
-    for (int i = 0; i < 3; i++) {
         string name = braceletNames[rand() % 8];
         string bracelet = braceletTypes[rand() % 6];
         braceletshop.push_back(Customer(name, bracelet));
+    }
+
+    for (int i = 0; i < 3; i++) {
+        string name = keychainNames[rand() % 8];
+        string keychain = keychainTypes[rand() % 6];
+        keychainshop.push(Customer(name, keychain));
     }
 
 
@@ -177,7 +177,18 @@ int main() {
     cout << "No new customers joined." << endl;
     }   
 
-
+    cout << "\n[Keychain Booth]" << endl;
+    if (!keychainshop.empty()) {
+        Customer customer = keychainshop.top();
+        cout << "  Serving: " << customer.name << " - " << customer.order << " keychain" << endl;
+        keychainshop.pop();
+        } else {
+            cout << "  No customers to serve." << endl;
+        }
+    if (rand() % 2 == 0) {
+    string customer = keychainNames[rand() % 8];
+    string keychain = keychainTypes[rand() % 6];
+    }
     
     
     
