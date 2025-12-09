@@ -41,6 +41,16 @@ class CoffeeShop {
             }
         }
 
+        bool isempty() {
+            return head == nullptr;
+        }
+
+        void dequeueOrder() {
+            if (head == nullptr) return;
+            Order* temp = head;
+            head = head->next;
+            
+        }
 };
 
 
@@ -65,8 +75,28 @@ int main() {
     cout << "Current Orders: " << endl;
     coffeeshop.printOrders();
 
+    for (int i = 0; i < 10; ++i) {
+        cout << "Round " << i << endl;
+    
+    if (!coffeeshop.isempty()) {
+        Order* current = coffeeshop.head;
+        cout << "Served: " << current->customer << endl;
+        coffeeshop.head = current->next;
+
+        dequeue here
+
+        
+
+    }
+    
+    }
+
+    }
 
     
+
+
+
     return 0;
 
 }
