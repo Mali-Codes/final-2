@@ -188,6 +188,10 @@ int main() {
     if (rand() % 2 == 0) {
     string customer = keychainNames[rand() % 8];
     string keychain = keychainTypes[rand() % 6];
+    keychainshop.push(Customer(customer, keychain));
+    cout << "New Order Added: " << customer << " - " << keychain << " keychain" << endl;
+    } else {
+    cout << "No new customers joined." << endl;
     }
     
     
